@@ -11,7 +11,7 @@ public class Productmanager {
 
     public static void main(String[] args) {
         do {
-            System.out.println("*******QUAN LY CUA HANG*******\n");
+            System.out.println("*******QUẢN LÝ CỬA HÀNG*******\n");
             System.out.println("1.Quản lý danh mục sản phẩm");
             System.out.println("2.Quản lý sản phẩm");
             System.out.println("3.Thoát ứng dụng");
@@ -108,7 +108,9 @@ public class Productmanager {
             System.out.println("5. Tìm kiếm sản phẩm theo tên sản phẩm");
             System.out.println("6. Thống kê số lượng và in thông tin các sản phẩm sắp hết hàng");
             System.out.println("7. Cập nhật trạng thái của sản phẩm theo mã sản phẩm");
-            System.out.println("8. Thoát (Trở lại menu Quản lý cửa hàng)");
+            System.out.println("8.nhập hàng");
+            System.out.println("9.xuất hàng");
+            System.out.println("10. Thoát (Trở lại menu Quản lý cửa hàng)");
             int m = Integer.parseInt(scanner.nextLine());
             switch (m) {
                 case 1:
@@ -181,6 +183,31 @@ public class Productmanager {
 
                     }
                 case 8:
+                    System.out.println("nhap ma can nhap hang");
+                    Scanner scanner3 = new Scanner(System.in);
+                    String buy = scanner3.nextLine();
+                    for (int i = 0; i < index2; i++) {
+                        if (listProduct[i].getProductID().equals(buy)){
+                            System.out.println("nhap so luong can nhap");
+                            int v = Integer.parseInt(scanner.nextLine());
+                            listProduct[i].setQuantity(listProduct[i].getQuantity()+v);
+                        }
+                        System.out.println("nhap hang thanh cong");
+                    }
+                    break;
+                case 9:
+                    System.out.println("nhap ma can xuat hang");
+                    Scanner scanner4 = new Scanner(System.in);
+                    String delivery = scanner4.nextLine();
+                    for (int i = 0; i < index2; i++) {
+                        if (listProduct[i].getProductID().equals(delivery)){
+                            System.out.println("nhap so luong can xuat");
+                            int a = Integer.parseInt(scanner.nextLine());
+                            listProduct[i].setQuantity(listProduct[i].getQuantity()-a);
+                        }
+                    }
+                    break;
+                case 10:
                     return;
             }
         }while (true) ;
